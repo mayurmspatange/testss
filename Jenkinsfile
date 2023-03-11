@@ -3,7 +3,11 @@ pipeline {
         kubernetes {
             cloud 'kubernetes' // Name of your Kubernetes cloud in Jenkins
             yamlFile 'my-pod.yaml' // Path to your Pod YAML file
-            label 'my-label' // Label to use for the agent pod
+            containerTemplate {
+                name 'hadolint' // Name of your container
+                image 'hadolint/hadolint:latest-debian' // Docker image to use for the container
+                command 'sh', '-c', 'echo "Hello, Kubernetes!"' // Command to run in the container
+            }
         }
     }
     stages {
