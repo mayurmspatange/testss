@@ -1,8 +1,19 @@
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: Deployment
 metadata:
-  name: my-pod-ets
+  name: nginx-deployment
 spec:
-  containers:
-  - name: hadolint
-    image: trufflesecurity/trufflehog:latest
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:latest
+          ports:
+            - containerPort: 80
