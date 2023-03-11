@@ -10,6 +10,8 @@ pipeline
       yaml '''
         apiAPP_VERSION: v1
         kind: Pod
+        metadata:
+          name: nginx-deployment
         spec:
           containers:
           - name: hadolint
