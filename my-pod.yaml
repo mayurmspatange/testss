@@ -1,8 +1,8 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: my-pod
+  name: my-pod-ets
 spec:
   containers:
   - name: hadolint
-    image: hadolint/hadolint:latest-debian
+    image: trufflesecurity/trufflehog:latest
