@@ -3,22 +3,6 @@ pipeline
     environment 
     {     
       ContainerImageRegistry ="273381533537.dkr.ecr.us-east-2.amazonaws.com"
-      ImageRepoName = "petstoreorderservice" //petstoreorderservice  //samplenodejsapp.
-      GitHubCredentialsId="MayurGitHub"
-      GitURl='https://github.kyndryl.net/Mayur-Patange1/petstoreapporder.git' //'https://github.kyndryl.net/Mayur-Patange1/SampleNodeJsApp.git'
-      AppHome='petstoreapporder-nodejs' //NodeJSApp
-      AppVersion= "ArgoRollOut"//sh(returnStdout: true, script: "git rev-parse --short=10 HEAD").trim()
-      SonarHome = tool name: 'sonarscanner'
-      Region='us-east-2'
-      AppName='petstoreapporder' //"SampleNodeJsApp" //petstoreapporder
-      AppBranchName='ArgoRollOut' //'newStructure' //"main"  //newStructure
-      SonarCoverageExclusionsPath='$APP_HOME/Utils/order_dataaccess.js,$APP_HOME/app.js,$APP_HOME/spec/**'   //'$APP_HOME/Utils/order_dataaccess.js,$APP_HOME/app.js,$APP_HOME/spec/**'   //'$AppHome/index.js,$AppHome/spec/**'
-      SonarCodeExclusions='$AppHome/app.js'    //"$AppHome/app.js"   //petstoreapporder-helmchart //nodejs-helmchart-generic
-    }
-    parameters 
-    {
-      string(name: 'HelmChartName', defaultValue : 'petstoreapporder-helmchart', description: "Helm Chart Repo Name")
-      string(name: 'ChartVersion', defaultValue : 'v0.1.98', description: "Helm Chart version")
     }
     agent 
     {
@@ -104,7 +88,7 @@ pipeline
             - cat
             tty: true
           - name: mcds-client
-            image: 273381533537.dkr.ecr.us-east-1.amazonaws.com/mcds-client:latest          
+            image: mikefarah/yq:latest          
             command:
             - cat
             tty: true
