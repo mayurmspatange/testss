@@ -1,4 +1,4 @@
-apiAPP_VERSION: v1
+apiVersion: v1
 kind: Pod
 spec:
   containers:
