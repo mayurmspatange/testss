@@ -6,7 +6,6 @@ pipeline {
             containerTemplate {
                 name 'hadolint' // Name of your container
                 image 'hadolint/hadolint:latest-debian' // Docker image to use for the container
-                command 'sh', '-c', 'echo "Hello, Kubernetes!"' // Command to run in the container
             }
         }
     }
